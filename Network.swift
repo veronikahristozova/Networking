@@ -11,13 +11,12 @@ import Alamofire
 import ObjectMapper
 
 enum APIRouter: URLRequestConvertible {
-    
-    static let baseURLString = "https://milenabooks.azurewebsites.net/api/"
-    
     case getBooks(Int, Int)
     case getBook(Int)
     case addBook(Book)
     case addPhoto(Data)
+    
+    static let baseURLString = "https://milenabooks.azurewebsites.net/api/"
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
@@ -61,7 +60,11 @@ enum APIRouter: URLRequestConvertible {
             return url
         }()
         
+        
         var urlRequest = URLRequest(url: url)
+        
+        
+        
         urlRequest.httpMethod = method.rawValue
         
         let encoding = JSONEncoding.default
@@ -69,10 +72,24 @@ enum APIRouter: URLRequestConvertible {
     }
 }
 
-struct APIProvider {
+extension APIRouter {
+    
+    
+    //Session Manager
+    static func getSessionManager() -> SessionManager {
+    
+        let oauthHandler = AccessTokenAdapter(baseURLString: "http://ec2-35-158-144-178.eu-central-1.compute.amazonaws.com/api", accessToken: "some access token", refreshToken: "some refresh token")
+        
+        let sessionManager = SessionManager()
+        sessionManager.adapter = oauthHandler
+        sessionManager.retrier = oauthHandler
+        
+       return sessionManager
+    }
+    
     // Get all books
-    func performGetBooks(from: Int, to: Int, completion: @escaping ([Book]) -> Void) {
-        Alamofire.request(APIRouter.getBooks(from, to)).validate().responseJSON { response in
+    static func performGetBooks(from: Int, to: Int, completion: @escaping ([Book]) -> Void) {
+        getSessionManager().request(APIRouter.getBooks(from, to)).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 if let books = Mapper<Book>().mapArray(JSONObject: value) {
@@ -85,8 +102,8 @@ struct APIProvider {
     }
     
     // Get book by id
-    func performGetBook(id: Int, completion: @escaping (Book) -> Void) {
-        Alamofire.request(APIRouter.getBook(id)).validate().responseJSON { response in
+    static func performGetBook(id: Int, completion: @escaping (Book) -> Void) {
+        getSessionManager().request(APIRouter.getBook(id)).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 if let book = Book(JSON: value as! [String:Any]) {
@@ -99,8 +116,8 @@ struct APIProvider {
     }
     
     // Post new book
-    func performAddBook(book: Book, completion: @escaping (Bool) -> Void) {
-        Alamofire.request(APIRouter.addBook(book)).validate().responseJSON { response in
+    static func performAddBook(book: Book, completion: @escaping (Bool) -> Void) {
+        getSessionManager().request(APIRouter.addBook(book)).validate().responseJSON { response in
             switch response.result {
             case .success:
                 completion(true)
@@ -112,8 +129,8 @@ struct APIProvider {
     }
 
     // Post photo(data)
-    func performChainOperations(photoJPG: Data, book: Book, completion: @escaping (Bool) -> Void) {
-                Alamofire.upload(multipartFormData: { multipartFormData in
+    static func performChainOperations(photoJPG: Data, book: Book, completion: @escaping (Bool) -> Void) {
+                getSessionManager().upload(multipartFormData: { multipartFormData in
             multipartFormData.append(photoJPG, withName: "fileset", fileName: "file.jpg", mimeType: "image/jpg")
         },
                          to: APIRouter.baseURLString + "upload")
@@ -144,17 +161,6 @@ struct APIProvider {
         }
     }
     
-//    func foo() {
-//        API.uploadImage(image: UIImage()) {
-//            
-//        }.onSuccess {
-//                
-//        }.onSuccess {
-//        
-//        }
-//    }
-    
-    
     //TODO: import PromiseKit
     func testChain() {
 //        NSURLConnection.promise(
@@ -169,4 +175,10 @@ struct APIProvider {
     }
 }
 
+
+enum test: URLConvertible {
+    func asURL() throws -> URL {
+        return URL(string: "")!
+    }
+}
 
