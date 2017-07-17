@@ -12,7 +12,7 @@ struct APIManager {
     public static let shared: SessionManager = {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-        configuration.timeoutIntervalForRequest = 5
+        configuration.timeoutIntervalForRequest = 60
         
         let manager = Alamofire.SessionManager(configuration: configuration)
         
