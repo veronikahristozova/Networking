@@ -78,7 +78,7 @@ extension APIRouter {
     //Session Manager
     static func getSessionManager() -> SessionManager {
     
-        let oauthHandler = AccessTokenAdapter(baseURLString: "http://ec2-35-158-144-178.eu-central-1.compute.amazonaws.com/api", accessToken: "some access token", refreshToken: "some refresh token")
+        let oauthHandler = AccessTokenAdapter(baseURLString: "http://ec2-35-158-144-178.eu-central-1.compute.amazonaws.com/api", accessToken: "some access token", refreshToken: "some refresh token", email: "", password: "")
         
         let sessionManager = SessionManager()
         sessionManager.adapter = oauthHandler

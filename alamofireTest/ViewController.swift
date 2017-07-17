@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getBooks(from: 0, to: 30)
+        getPlayers()
+        //getBooks(from: 0, to: 30)
         
         //getBookById(id: 4)
         
@@ -25,6 +26,17 @@ class ViewController: UIViewController {
     }
 }
 extension ViewController {
+    //Xplosion
+    func getPlayers() {
+        APIxplosion.performGetPlayers(from: 0, to: 100) { players in
+            print(players.count)
+        }
+    }
+    
+    
+    
+    
+    //MILENA BOOKS
     func getBooks(from: Int, to: Int) {
         APIRouter.performGetBooks(from: from, to: to) { [weak self] (books: [Book]) in
             print("\(books.count) books have been parsedddd")

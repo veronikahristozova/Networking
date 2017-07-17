@@ -16,6 +16,7 @@
 		96641ECA1F069C4600CD4332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96641EC81F069C4600CD4332 /* LaunchScreen.storyboard */; };
 		96641ED21F069C7400CD4332 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96641ED11F069C7400CD4332 /* Network.swift */; };
 		9696CD2D1F176A1A00A69675 /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696CD2C1F176A1A00A69675 /* AccessTokenAdapter.swift */; };
+		9696CD311F17B92600A69675 /* APIXplosion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696CD301F17B92600A69675 /* APIXplosion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		96641ECB1F069C4600CD4332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96641ED11F069C7400CD4332 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = ../Network.swift; sourceTree = "<group>"; };
 		9696CD2C1F176A1A00A69675 /* AccessTokenAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenAdapter.swift; sourceTree = "<group>"; };
+		9696CD301F17B92600A69675 /* APIXplosion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIXplosion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				96641EBF1F069C4600CD4332 /* AppDelegate.swift */,
 				96641EC11F069C4600CD4332 /* ViewController.swift */,
 				96641ED11F069C7400CD4332 /* Network.swift */,
+				9696CD301F17B92600A69675 /* APIXplosion.swift */,
 				9696CD2C1F176A1A00A69675 /* AccessTokenAdapter.swift */,
 				964048D91F0BFC9F00942087 /* Models.swift */,
 				96641EC31F069C4600CD4332 /* Main.storyboard */,
@@ -223,6 +226,7 @@
 			files = (
 				9696CD2D1F176A1A00A69675 /* AccessTokenAdapter.swift in Sources */,
 				96641EC21F069C4600CD4332 /* ViewController.swift in Sources */,
+				9696CD311F17B92600A69675 /* APIXplosion.swift in Sources */,
 				96641ED21F069C7400CD4332 /* Network.swift in Sources */,
 				96641EC01F069C4600CD4332 /* AppDelegate.swift in Sources */,
 				964048DA1F0BFC9F00942087 /* Models.swift in Sources */,
