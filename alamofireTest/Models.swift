@@ -35,19 +35,7 @@ struct Book: Mappable {
     }
 }
 
-struct Player: Mappable {
-    var id: String = ""
-    var name: String = ""
-    var age: Int = 1
-    
-    init?(map: Map) {}
-    
-    mutating func mapping(map: Map) {
-        id <- map["_id"]
-        name <- map["Name"]
-        age <- map["Age"]
-    }
-}
+
 
 
 //Image downloading

@@ -7,21 +7,12 @@
 //
 
 import Alamofire
-
-
 //MAJOR TODO: beautify this!!!
-
-let sessionManager: SessionManager = {
-    let configuration = URLSessionConfiguration.default
-    configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-    configuration.timeoutIntervalForRequest = 1
-    return SessionManager(configuration: configuration)
-}()
 
 // Adapting and Retrying
 class AccessTokenAdapter: RequestAdapter, RequestRetrier {
+    
     private typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: String?, _ refreshToken: String?) -> Void
-    private var baseURLString: String
     private var accessToken: String
     private var refreshToken: String
     private var email: String
@@ -29,16 +20,13 @@ class AccessTokenAdapter: RequestAdapter, RequestRetrier {
     private var isRefreshing = false
     private var requestsToRetry: [RequestRetryCompletion] = []
     private var defaultRetryCount = 4
-    private var requestsAndRetryCounts: [(Request, Int)] = []
     
-    init(baseURLString: String, accessToken: String, refreshToken: String, email: String, password: String) {
-        self.baseURLString = baseURLString
+    init(accessToken: String, refreshToken: String, email: String, password: String) {
         self.accessToken = accessToken
         self.refreshToken = refreshToken
         self.email = email
         self.password = password
     }
-    
     
     // RequestAdapter method
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
@@ -83,23 +71,22 @@ class AccessTokenAdapter: RequestAdapter, RequestRetrier {
     
     private func refreshTokens(completion: @escaping RefreshCompletion) {
         guard !isRefreshing else { return }
-        
         isRefreshing = true
         
-        let urlString = "\(baseURLString)/login"
+        //The url for the token
+        let urlString = "\(APIxplosion.baseURLString)/login"
         
+        //Needed params for authentication
         let parameters: [String: Any] = [
             "Email": email,
             "Password": password,
         ]
         
-        sessionManager.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { [weak self] response in
+        //The request for new token
+        APIManager.shared.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { [weak self] response in
             guard let strongSelf = self else { return }
             
-            if
-                let json = response.result.value as? [String: Any],
-                let accessToken = json["token"] as? String
-            {
+            if let json = response.result.value as? [String: Any], let accessToken = json["token"] as? String {
                 completion(true, accessToken, nil)
             } else {
                 completion(false, nil, nil)

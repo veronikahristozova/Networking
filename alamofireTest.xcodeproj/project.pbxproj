@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5E132B8835E5CABA95526470 /* Pods_alamofireTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E45ACCEC938B17DBB785C56 /* Pods_alamofireTest.framework */; };
+		9612C9D61F1CE22800902A86 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612C9D51F1CE22800902A86 /* APIManager.swift */; };
+		9612C9D81F1CE28400902A86 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612C9D71F1CE28400902A86 /* PlayerModel.swift */; };
 		964048DA1F0BFC9F00942087 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964048D91F0BFC9F00942087 /* Models.swift */; };
 		96641EC01F069C4600CD4332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96641EBF1F069C4600CD4332 /* AppDelegate.swift */; };
 		96641EC21F069C4600CD4332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96641EC11F069C4600CD4332 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 		26D1F24ABB6D629E300EE89F /* Pods-alamofireTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofireTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofireTest/Pods-alamofireTest.debug.xcconfig"; sourceTree = "<group>"; };
 		68A4D10669582ED77A6EFF7C /* Pods-alamofireTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofireTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofireTest/Pods-alamofireTest.release.xcconfig"; sourceTree = "<group>"; };
 		7E45ACCEC938B17DBB785C56 /* Pods_alamofireTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofireTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9612C9D51F1CE22800902A86 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		9612C9D71F1CE28400902A86 /* PlayerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		964048D91F0BFC9F00942087 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		96641EBC1F069C4600CD4332 /* alamofireTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alamofireTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96641EBF1F069C4600CD4332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +52,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9612C9D91F1CE29400902A86 /* Networking Xplosion */ = {
+			isa = PBXGroup;
+			children = (
+				9696CD301F17B92600A69675 /* APIXplosion.swift */,
+				9696CD2C1F176A1A00A69675 /* AccessTokenAdapter.swift */,
+				9612C9D51F1CE22800902A86 /* APIManager.swift */,
+				9612C9D71F1CE28400902A86 /* PlayerModel.swift */,
+			);
+			name = "Networking Xplosion";
+			sourceTree = "<group>";
+		};
+		9612C9DA1F1CE2CF00902A86 /* Networiking MilenaBooks  */ = {
+			isa = PBXGroup;
+			children = (
+				96641ED11F069C7400CD4332 /* Network.swift */,
+				964048D91F0BFC9F00942087 /* Models.swift */,
+			);
+			name = "Networiking MilenaBooks ";
+			sourceTree = "<group>";
+		};
 		96641EB31F069C4600CD4332 = {
 			isa = PBXGroup;
 			children = (
@@ -71,10 +95,8 @@
 			children = (
 				96641EBF1F069C4600CD4332 /* AppDelegate.swift */,
 				96641EC11F069C4600CD4332 /* ViewController.swift */,
-				96641ED11F069C7400CD4332 /* Network.swift */,
-				9696CD301F17B92600A69675 /* APIXplosion.swift */,
-				9696CD2C1F176A1A00A69675 /* AccessTokenAdapter.swift */,
-				964048D91F0BFC9F00942087 /* Models.swift */,
+				9612C9DA1F1CE2CF00902A86 /* Networiking MilenaBooks  */,
+				9612C9D91F1CE29400902A86 /* Networking Xplosion */,
 				96641EC31F069C4600CD4332 /* Main.storyboard */,
 				96641EC61F069C4600CD4332 /* Assets.xcassets */,
 				96641EC81F069C4600CD4332 /* LaunchScreen.storyboard */,
@@ -226,10 +248,12 @@
 			files = (
 				9696CD2D1F176A1A00A69675 /* AccessTokenAdapter.swift in Sources */,
 				96641EC21F069C4600CD4332 /* ViewController.swift in Sources */,
+				9612C9D81F1CE28400902A86 /* PlayerModel.swift in Sources */,
 				9696CD311F17B92600A69675 /* APIXplosion.swift in Sources */,
 				96641ED21F069C7400CD4332 /* Network.swift in Sources */,
 				96641EC01F069C4600CD4332 /* AppDelegate.swift in Sources */,
 				964048DA1F0BFC9F00942087 /* Models.swift in Sources */,
+				9612C9D61F1CE22800902A86 /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

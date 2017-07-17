@@ -14,11 +14,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK: - Xplosion API
         getPlayers()
+        
+        
+        //MARK: - Milena Books API
         //getBooks(from: 0, to: 30)
-        
         //getBookById(id: 4)
-        
+
         //let image = UIImage(named: "xplosion")
         //upload(photo: UIImageJPEGRepresentation(image!, 0.3)!)
         
