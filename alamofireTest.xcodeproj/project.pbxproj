@@ -10,6 +10,7 @@
 		5E132B8835E5CABA95526470 /* Pods_alamofireTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E45ACCEC938B17DBB785C56 /* Pods_alamofireTest.framework */; };
 		9612C9D61F1CE22800902A86 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612C9D51F1CE22800902A86 /* APIManager.swift */; };
 		9612C9D81F1CE28400902A86 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612C9D71F1CE28400902A86 /* PlayerModel.swift */; };
+		9612C9DC1F1CEC3900902A86 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612C9DB1F1CEC3900902A86 /* Preferences.swift */; };
 		964048DA1F0BFC9F00942087 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964048D91F0BFC9F00942087 /* Models.swift */; };
 		96641EC01F069C4600CD4332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96641EBF1F069C4600CD4332 /* AppDelegate.swift */; };
 		96641EC21F069C4600CD4332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96641EC11F069C4600CD4332 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 		7E45ACCEC938B17DBB785C56 /* Pods_alamofireTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofireTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9612C9D51F1CE22800902A86 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		9612C9D71F1CE28400902A86 /* PlayerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		9612C9DB1F1CEC3900902A86 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		964048D91F0BFC9F00942087 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		96641EBC1F069C4600CD4332 /* alamofireTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alamofireTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96641EBF1F069C4600CD4332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				9696CD2C1F176A1A00A69675 /* AccessTokenAdapter.swift */,
 				9612C9D51F1CE22800902A86 /* APIManager.swift */,
 				9612C9D71F1CE28400902A86 /* PlayerModel.swift */,
+				9612C9DB1F1CEC3900902A86 /* Preferences.swift */,
 			);
 			name = "Networking Xplosion";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				96641EC01F069C4600CD4332 /* AppDelegate.swift in Sources */,
 				964048DA1F0BFC9F00942087 /* Models.swift in Sources */,
 				9612C9D61F1CE22800902A86 /* APIManager.swift in Sources */,
+				9612C9DC1F1CEC3900902A86 /* Preferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

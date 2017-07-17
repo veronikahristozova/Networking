@@ -13,25 +13,14 @@ import Alamofire
 class AccessTokenAdapter: RequestAdapter, RequestRetrier {
     
     private typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: String?, _ refreshToken: String?) -> Void
-    private var accessToken: String
-    private var refreshToken: String
-    private var email: String
-    private var password: String
     private var isRefreshing = false
     private var requestsToRetry: [RequestRetryCompletion] = []
     private var defaultRetryCount = 4
     
-    init(accessToken: String, refreshToken: String, email: String, password: String) {
-        self.accessToken = accessToken
-        self.refreshToken = refreshToken
-        self.email = email
-        self.password = password
-    }
-    
     // RequestAdapter method
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var urlRequest = urlRequest
-        urlRequest.setValue("Bearer " + accessToken , forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("Bearer " + Preferences.accessToken , forHTTPHeaderField: "Authorization")
         return urlRequest
     }
     
@@ -45,7 +34,7 @@ class AccessTokenAdapter: RequestAdapter, RequestRetrier {
                     guard let strongSelf = self else { return }
                     
                     if let accessToken = accessToken {
-                        strongSelf.accessToken = accessToken
+                        Preferences.accessToken = accessToken
                         //strongSelf.refreshToken = refreshToken
                         _ = try? strongSelf.adapt(request.request!)
                     }
@@ -54,9 +43,7 @@ class AccessTokenAdapter: RequestAdapter, RequestRetrier {
                     strongSelf.requestsToRetry.removeAll()
                 }
             }
-            
-            //TODO: find a better way to get the error's status code
-        } else if error.localizedDescription == "The request timed out." {
+        } else if (error as NSError).code == -1001  { //Timeout status code
             print(error)
             if defaultRetryCount == 0 {
                 completion(false, 0)
@@ -78,8 +65,8 @@ class AccessTokenAdapter: RequestAdapter, RequestRetrier {
         
         //Needed params for authentication
         let parameters: [String: Any] = [
-            "Email": email,
-            "Password": password,
+            "Email": Preferences.email,
+            "Password": Preferences.password,
         ]
         
         //The request for new token

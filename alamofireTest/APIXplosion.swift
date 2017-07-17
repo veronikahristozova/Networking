@@ -46,7 +46,6 @@ enum APIxplosion: URLRequestConvertible {
             return url
         }()
         
-        
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = method.rawValue
         let encoding = JSONEncoding.default

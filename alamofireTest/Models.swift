@@ -36,19 +36,6 @@ struct Book: Mappable {
 }
 
 
-
-
-//Image downloading
-func idk(pictureURL: String?) {
-    if let pictureURL = pictureURL {
-        Alamofire.request(pictureURL).responseImage { response in
-            //guard let image = response.result.value else { return }
-            //self.imageDownloadCompletion?(image)
-        }
-    }
-}
-
-
 //Example usage of async downloading image, or retrive from cached.
 class cellClass {
     

@@ -77,7 +77,7 @@ extension APIRouter {
     //Session Manager
     static func getSessionManager() -> SessionManager {
     
-        let oauthHandler = AccessTokenAdapter(accessToken: "some access token", refreshToken: "some refresh token", email: "", password: "")
+        let oauthHandler = AccessTokenAdapter()
         
         let sessionManager = SessionManager()
         sessionManager.adapter = oauthHandler
@@ -171,13 +171,6 @@ extension APIRouter {
 //            }.then { _ in
 //                // Reload table
 //        }
-    }
-}
-
-
-enum test: URLConvertible {
-    func asURL() throws -> URL {
-        return URL(string: "")!
     }
 }
 

@@ -6,9 +6,7 @@
 //  Copyright © 2017 Veronika Hristozova. All rights reserved.
 //
 
-import Foundation
 import Alamofire
-
 
 struct APIManager {
     public static let shared: SessionManager = {
@@ -17,8 +15,9 @@ struct APIManager {
         configuration.timeoutIntervalForRequest = 5
         
         let manager = Alamofire.SessionManager(configuration: configuration)
+        
         //Here some Preferences email and password properties
-        let handler = AccessTokenAdapter(accessToken: "", refreshToken: "", email: "v@gmail.com", password: "123456")
+        let handler = AccessTokenAdapter() 
         manager.adapter = handler
         manager.retrier = handler
         return manager
