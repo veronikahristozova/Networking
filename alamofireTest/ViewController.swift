@@ -31,7 +31,11 @@ class ViewController: UIViewController {
 extension ViewController {
     //Xplosion
     func getPlayers() {
-        APIxplosion.performGetPlayers(from: 0, to: 100) { players in
+        APIxplosion.performGetPlayers(from: 0, to: 100) { players, error in
+            guard error == nil else {
+                //show login view etc
+                return
+            }
             print(players.count)
         }
     }

@@ -56,15 +56,17 @@ enum APIxplosion: URLRequestConvertible {
 extension APIxplosion {
     
     // Get all books
-    static func performGetPlayers(from: Int, to: Int, completion: @escaping ([Player]) -> Void) {
+    static func performGetPlayers(from: Int, to: Int, completion: @escaping ([Player], Error?) -> Void) {
         
         APIManager.shared.request(APIxplosion.getPlayers(from, to)).validate().responseJSON { response in
             switch response.result {
             case .success(let value as [String:Any]):
                 if let players = Mapper<Player>().mapArray(JSONObject: value["players"]) {
-                    completion(players)
+                    completion(players, nil)
                 }
             case .failure(let err):
+                
+                completion([], err)
                 print(err.localizedDescription, response.request!.description)
             default: return
             }

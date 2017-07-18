@@ -16,7 +16,6 @@ struct APIManager {
         
         let manager = Alamofire.SessionManager(configuration: configuration)
         
-        //Here some Preferences email and password properties
         let handler = AccessTokenAdapter() 
         manager.adapter = handler
         manager.retrier = handler
